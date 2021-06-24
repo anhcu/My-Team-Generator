@@ -1,6 +1,14 @@
 # My-Team-Generator
+- Link access to my Github [Repository](https://github.com/anhcu/My-Team-Generator)
+- Link access to My Team Generator [Published Link](https://anhcu.github.io/My-Team-Generator/)
+
+# License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
+```md
+My team generator is an application that’ll help you deploy a summary page of your team.  This application will ask you a series of questions about yourself and your software engineer team.  For example, what's their job title, ID, email and Github. In return, it’ll generate a HTML summary page of your team. 
+```
 
 ## User Story
 
