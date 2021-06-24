@@ -1,0 +1,28 @@
+{
+  "name": "my-team-generator",
+  "version": "1.0.0",
+  "description": "```md\r AS A manager\r I WANT to generate a webpage that displays my team's basic info\r SO THAT I have quick access to their emails and GitHub profiles\r ```",
+  "main": "Index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "inquirer": "^8.1.1",
+    "jest": "^27.0.5",
+    "package-json": "^7.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anhcu/My-Team-Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anhcu/My-Team-Generator/issues"
+  },
+  "homepage": "https://github.com/anhcu/My-Team-Generator#readme"
+}
