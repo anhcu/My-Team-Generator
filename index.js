@@ -1,12 +1,26 @@
-const Intern = require('./lib/Intern')
+const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer.js');
 const Manager = require('./lib/Manager.js');
 const http = require('http');
-const { Script } = require('vm');
+// const { Script } = require('vm');
 const inquirer = require('inquirer');
 
-// const { createDecipher } = require('crypto');
-// const port = 8080;
+
+const fs = require('fs');
+const port = 8080
+
+const server = http.createServer(function(req,res) {
+    res.writeHead(200, { 'Content-Type': 'text/html' })
+    fs.readFile('index.html', function(error, data) {
+        if (error) {
+            res.writeHead(404)
+            res.write("Error: File Not Found")
+        } else {
+            res.write(data)
+        }
+        res.end()
+    })
+})
 
 
 
@@ -219,7 +233,7 @@ const handleRequest = (request, response) => {
   
   // Use the Node HTTP package to create our server.
   // Pass the handleRequest function to empower it with functionality.
-  const server = http.createServer(handleRequest);
+//   const server = http.createServer(handleRequest);---------------------
   
 //   // Start our server so that it can begin listening to client requests.
 //   server.listen(PORT, () => {
