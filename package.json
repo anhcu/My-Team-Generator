@@ -9,7 +9,8 @@
   "dependencies": {
     "inquirer": "^8.1.1",
     "jest": "^27.0.5",
-    "package-json": "^7.0.0"
+    "package-json": "^7.0.0",
+    "requirejs": "^2.3.6"
   },
   "devDependencies": {},
   "scripts": {
