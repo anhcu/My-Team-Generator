@@ -19,7 +19,7 @@ test("grab the role ", ()=> {
 
 //create a t est to test your getOffice method (grabbign the number and testing the method)
 test("grab the engineer info", ()=> {
-    const testVaule = 100;
+    const testVaule = "GitHubUser";
                                //("Name", id, "email", officeNumber)
     const example = new Engineer("Name", 2, "test@test.com",testVaule);
     expect(example.getGithub()).toBe(testVaule);
