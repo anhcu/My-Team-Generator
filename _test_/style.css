@@ -11,9 +11,9 @@ body{
     color: white;
 }
 
-.card employee-card{
- margin: 10px;
- padding:  5px;
+.team-area{
+    justify-content: center;
+
 }
 
 .card-header{
