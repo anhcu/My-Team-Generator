@@ -21,8 +21,8 @@ My team generator is an application that’ll help you deploy a summary page of 
 ## User Story
 
 
-AS A manager
-I WANT to generate a webpage that displays my team's basic info
+AS A manager<br>
+I WANT to generate a webpage that displays my team's basic info<br>
 SO THAT I have quick access to their emails and GitHub profiles
 
 
