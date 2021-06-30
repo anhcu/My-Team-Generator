@@ -9,13 +9,34 @@ const OUTPUT_DIR = path.resolve(__dirname, "_test_");
 const render = require("./lib/renderer");
 
 
+//This function will validate prompts needing a string
+const validateString = string => {
+  return string !== '' || 'This information is required.';
+}
+
+//Will validate if a number is entered in prompts needing a number
+const validateNumber = number => {
+  const reg = /^\d+$/;
+  return reg.test(number) || "Please enter a number.";
+}
+
+//A function that will validate if an proper email is entered when prompted.
+const validateEmail = email => {
+  const reg = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/;
+  return reg.test(email) || "Please enter a valid email."
+
+}
+
+
+
+
 let teamMembers = [];
 
 const firstQuestion = {
   type: "list",
   message: "Would you like to add a member or generate current team?",
   name: "Add",
-  choices: ["Add Member", "Generate Team"],
+  choices: ["Add Member", "Create Team"],
 };
 const questionsYourRole = {
   type: "list",
@@ -36,21 +57,25 @@ const Questions = {
       type: "input",
       message: "Please enter your name",
       name: "name",
+      validate: validateString,
     },
     {
       type: "input",
       message: "What is your id Number?",
       name: "id",
+      validate: validateNumber,
     },
     {
       type: "input",
       message: "What is your email?",
       name: "email",
+      validate: validateEmail,
     },
     {
       type: "input",
       message: "What is your office number?",
       name: "officeNumber",
+      validate: validateNumber,
     },
   ],
   Engineer: [
@@ -58,21 +83,25 @@ const Questions = {
       type: "input",
       message: "Your name",
       name: "name",
+      validate: validateString,
     },
     {
       type: "input",
       message: "What is your id Number?",
       name: "id",
+      validate: validateNumber,
     },
     {
       type: "input",
       message: "What is your email?",
       name: "email",
+      validate: validateEmail,
     },
     {
       type: "input",
       message: "What is your Github userName?",
       name: "githubUserName",
+      validate: validateString,
     },
   ],
   Intern: [
@@ -80,27 +109,31 @@ const Questions = {
       type: "input",
       message: "Please enter your name",
       name: "name",
+      validate: validateString,
     },
     {
       type: "input",
       message: "What is your id Number?",
       name: "id",
+      validate: validateNumber,
     },
     {
       type: "input",
       message: "What is your email?",
       name: "email",
+      validate: validateEmail,
     },
     {
       type: "input",
       message: "What is your school?",
       name: "school",
+      validate: validateString,
     },
   ],
 };
 
 
-const startApp = () => {
+function init() {
   selectRole();
 };
 
@@ -158,7 +191,7 @@ const getFileName = () => {
 };
 
 const generateTeam = (fileName) => {
-  const outputPath = path.join(OUTPUT_DIR, fileName + ".html2");
+  const outputPath = path.join(OUTPUT_DIR, fileName + ".html");
 
   if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR);
@@ -172,239 +205,4 @@ const generateTeam = (fileName) => {
   });
 };
 
-
-
-
-
-
-startApp();
-
-
-
-// const Intern = require('./lib/Intern');
-// const Engineer = require('./lib/Engineer.js');
-// const Manager = require('./lib/Manager.js');
-// const http = require('http');
-// // const { Script } = require('vm');
-// const inquirer = require('inquirer');
-
-
-// const fs = require('fs');
-// const port = 8080
-
-
-
-// const server = http.createServer(function(req,res) {
-//     res.writeHead(200, { 'Content-Type': 'text/html' })
-//     fs.readFile('index.html', function(error, data) {
-//         if (error) {
-//             res.writeHead(404)
-//             res.write("Error: File Not Found")
-//         } else {
-//             res.write(data)
-//         }
-//         res.end()
-//     })
-// })
-
-
-
-// const teamArray = [
-//     {
-//     name : "Engineer", id : 1, email : 'test1@email.com'
-// },
-// {
-//     name : "Intern", id : 2, email : 'test2@email.com'
-// },
-// {
-//     name : "Manager", id : 3, email : 'test3@email.com'
-// }
-
-// ];
-
-
-// const questions = [
-//     {
-//         type: "input",
-//         message: "What is your name?",
-//         name:"name"
-//     },{
-//         type: "input",
-//         message: "What is your ID number?",
-//         name:"id"
-//     },{
-//         type: "input",
-//         message: "What is your email?",
-//         name:"email"
-//     },{
-//         type: "checkbox",
-//         message: "What is your role?(Use spacebar to select)",
-//         name:"role",
-//         choices: ['Engineer', 'Intern', 'Manager']
-//     }
-// ]
-
-// //function to write REAMME file
-// function writeToFile(fileName,data){
-
-//     if(data){
-//         this.LoadTabs()
-//     }
-// }
-
-// function LoadTabs(){
-//     this.teamArray.forEach(tab => {
-//         const cardDiv = document.getElementById('card')
-//         const titleDiv = document.createElement('div')
-//         titleDiv.id = tab.id;
-//         titleDiv.classList.add('title')
-
-//         const labelTitle = document.createElement('h5')
-//         labelTitle.classList.add('card-title')
-//         labelTitle.innerText=tab.name
-        
-//         const lableRole = document.createElement('h5')
-//         lableRole.id = 'role' + tab.id
-//         lableRole.classList.add("card-title")
-//         lableRole.innerText= tab.role + " Name"
-       
-//         titleDiv.append(labelTitle)
-//         titleDiv.append(lableRole)
-//         cardDiv.append(titleDiv)
-
-//         const bodyDiv = document.createElement('div')
-//         bodyDiv.id = tab.id;
-//         bodyDiv.classList.add('card-body')
-
-//         const labelID = document.createElement('p')
-//         labelID.classList.add('card-text')
-//         labelID.innerText= "ID:" + tab.id
-        
-//         const labelEmail = document.createElement('p')
-//         labelEmail.classList.add('card-text')
-//         labelEmail.innerText= "Email:" + tab.email
-
-//         const labelOffice = document.createElement('p')
-//         labelOffice.classList.add('card-text')
-//         labelOffice.innerText= "Office Number:" + tab.officeNumber
-       
-//         bodyDiv.append(labelID)
-//         bodyDiv.append(labelEmail)
-//         bodyDiv.append(labelOffice)
-//         cardDiv.append(bodyDiv)
-//       })
-// }
-
-// function addUser() {
-//     inquirer.prompt([
-//         {
-//             type: "yes",
-//             message: "Would you like to add a new team member?",
-//             name: "newMember"
-//         }
-//     ]).then((data) =>{
-//         if(data.newMember === true) {
-//             teamMemberInput();
-//         }
-//         else {
-//             generateHTML();
-//         }
-//     })
-// }
-
-// function generateMarkdown(data) {
-//     if (data.role[0] === "Engineer") {
-//         inquirer.prompt([
-//             {
-//                 type: "input",
-//                 name: "Github",
-//                 message: "Enter Github username:"
-//             }
-//         ])
-//             .then((roleField) => {
-//                 let newMember = new Engineer(data.name, data.id, data.email, roleField);
-//                 teamArray.push(newMember);
-//                 addUser();
-//             })
-//     }
-//     else if (data.role[0] === "Intern") {
-//         inquirer.prompt([
-//             {
-//                 type: "input",
-//                 name: "school",
-//                 message: "What school you're attending"
-//             }
-//         ])
-//             .then((roleField) => {
-//                 let newMember = new Intern(data.name, data.id, data.email, roleField);
-//                 teamArray.push(newMember);
-//                 addUser();
-//             })
-//     }
-//     else {
-//         inquirer.prompt(
-//             {
-//                 type: "input",
-//                 name: "office",
-//                 message: "What's your office number?"
-//             }
-//         )
-//             .then(function(roleField) {
-//                 console.log(roleField)
-//                 // let newMember = new Manager(data.name, data.id, data.email, roleField);
-//                 // teamArray.push(newMember);
-//                 // addUser();
-//                 return addMoreTeamMember(data)
-//             })
-//     }
-// };
-
-
-// function addMoreTeamMember(data) {
-//     inquirer.prompt(
-//         {
-//             type: "input",
-//             name: "office",
-//             message: "Continue",
-//             choices: ['Yes', 'No']
-//         }
-//     )
-//         .then(function(conitnue) {
-//             console.log(conitnue)
-//             if(conitnue == 'Yes' || conitnue == "yes"){
-//                 this.generateMarkdown(data)
-//             }else{
-//                 return true;
-//             }
-//         })
-// }
-      
-
-// function init() {
-//     inquirer.prompt(questions)
-//     .then(function(data) {
-//         writeToFile('test.md', generateMarkdown(data));
-//     })
-// }
-
-
-
-
-// const handleRequest = (request, response) => {
-//     // Send the below string to the client when the user visits the PORT URL
-//     response.end(`It Works!! Path Hit: ${request.url}`);
-//   };
-  
-//   // Use the Node HTTP package to create our server.
-//   // Pass the handleRequest function to empower it with functionality.
-// //   const server = http.createServer(handleRequest);---------------------
-  
-// //   // Start our server so that it can begin listening to client requests.
-// //   server.listen(PORT, () => {
-// //     // Log (server-side) when our server has started
-// //     console.log(`Server listening on: http://localhost:${PORT}`);
-// //   });
-  
-
-
-// init();
+init();

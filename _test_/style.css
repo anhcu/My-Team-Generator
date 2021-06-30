@@ -1,0 +1,22 @@
+body{
+    background-color: gray;
+}
+
+
+.jumbotron{
+    background-color: red;
+}
+
+.text-center{
+    color: white;
+}
+
+.card employee-card{
+ margin: 10px;
+ padding:  5px;
+}
+
+.card-header{
+    background-color: blue;
+    color: white;
+}

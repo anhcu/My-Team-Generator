@@ -10,8 +10,12 @@
 My team generator is an application that’ll help you deploy a summary page of your team.  This application will ask you a series of questions about yourself and your software engineer team.  For example, what's their job title, ID, email and Github. In return, it’ll generate a HTML summary page of your team. 
 ```
 
-# Installation and Instructions
-Install node.js and node package modules: jest and inquirer.
+# Installation 
+- node package modules: 
+- -  [Jest package](https://www.npmjs.com/package/jest) 
+- -  [Jest package](https://www.npmjs.com/package/jest)
+
+
 * (add a walk through video)
 
 ## User Story
@@ -43,7 +47,16 @@ THEN I am prompted to enter the intern’s name, ID, email, and school, and I am
 WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
 ```
-# Question
-Contact me if you have any question anhcu714@gmail.com. 
+
+## TECHNOLOGIES USED
+- HTML5
+- JavaScript
+- Node.js
+- Jest
+- Inquirer
+
+## Question
+Contact me if you have any question please email me at anhcu714@gmail.com. 
+
 ## Mock-Up
 - (add picture)
