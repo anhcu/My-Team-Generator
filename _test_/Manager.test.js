@@ -16,7 +16,7 @@ test("grab the role ", ()=> {
     const example = new Manager("Name", 2, "test@test.com", 100);
     expect(example.getRole()).toBe(testVaule);
  });
-
+  
 //create a t est to test your getOffice method (grabbign the number and testing the method)
 test("grab the office number ", ()=> {
     const testVaule = 100;

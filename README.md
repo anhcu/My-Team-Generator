@@ -1,6 +1,6 @@
 # My-Team-Generator
 - Link access to my Github [Repository](https://github.com/anhcu/My-Team-Generator)
-- Link access to My Team Generator [Published Link](https://anhcu.github.io/My-Team-Generator/)
+- Link to my walk through [YouTube](https://youtu.be/rb2RcDm7A3s)
 
 # License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -13,10 +13,8 @@ My team generator is an application that’ll help you deploy a summary page of 
 # Installation 
 - node package modules: 
 - -  [Jest package](https://www.npmjs.com/package/jest) 
-- -  [Jest package](https://www.npmjs.com/package/jest)
+- -  [Inquirer](https://www.npmjs.com/package/inquirer)
 
-
-* (add a walk through video)
 
 ## User Story
 
@@ -58,5 +56,8 @@ THEN I exit the application, and the HTML is generated<br>
 ## Question
 Contact me if you have any question please email me at anhcu714@gmail.com. 
 
-## Mock-Up
-- (add picture)
+# Mock-Up
+
+- Link to my walk through [YouTube](https://youtu.be/rb2RcDm7A3s)
+
+![mock1](./images/mock-up3.png)
